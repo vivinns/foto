@@ -28,8 +28,8 @@
 
     #quadro {
       position: absolute;
-      top: 50%;  /* ajuste vertical */
-      left: 50%; /* ajuste horizontal */
+      top: 50%;
+      left: 50%;
       transform: translate(-50%, -50%);
       width: 300px;
       height: 100px;
@@ -51,16 +51,18 @@
   </div>
 
   <script>
-    // Pega o último pedaço do caminho da URL
-    let partes = window.location.pathname.split('/');
-    let cidade = partes.pop() || partes.pop(); // remove string vazia no final
+    // Captura os parâmetros da URL
+    const params = new URLSearchParams(window.location.search);
+    let cidade = params.get("cidade");
 
     if (cidade) {
-      // Substitui hífens por espaço
+      // Substitui hífens por espaços
       cidade = decodeURIComponent(cidade).replace(/-/g, ' ');
       // Deixa a primeira letra maiúscula
       cidade = cidade.charAt(0).toUpperCase() + cidade.slice(1);
       document.getElementById('quadro').textContent = cidade;
+    } else {
+      document.getElementById('quadro').textContent = "Cidade não informada";
     }
   </script>
 </body>
