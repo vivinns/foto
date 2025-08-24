@@ -47,21 +47,21 @@
 <body>
   <div class="container">
     <img id="fundo" src="https://i.postimg.cc/9FPJv25g/foto.png" alt="Fundo">
-    <div id="quadro">Aqui vai o nome</div>
+    <div id="quadro">Carregando...</div>
   </div>
 
   <script>
-    // Pega o final da URL
-    const url = window.location.href;
-    const partes = url.split('/');
-    let cidade = partes[partes.length - 1]; // último segmento da URL
+    // Pega o último pedaço do caminho da URL
+    let partes = window.location.pathname.split('/');
+    let cidade = partes.pop() || partes.pop(); // remove string vazia no final
 
-    // Substitui %20 por espaço e deixa a primeira letra maiúscula
-    cidade = decodeURIComponent(cidade).replace(/-/g, ' ');
-    cidade = cidade.charAt(0).toUpperCase() + cidade.slice(1);
-
-    // Coloca o texto dentro do retângulo
-    document.getElementById('quadro').textContent = cidade;
+    if (cidade) {
+      // Substitui hífens por espaço
+      cidade = decodeURIComponent(cidade).replace(/-/g, ' ');
+      // Deixa a primeira letra maiúscula
+      cidade = cidade.charAt(0).toUpperCase() + cidade.slice(1);
+      document.getElementById('quadro').textContent = cidade;
+    }
   </script>
 </body>
 </html>
