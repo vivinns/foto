@@ -28,12 +28,13 @@
 
     #cidadeTexto {
       position: absolute;
-      bottom: 140px; /* Ajuste para alinhar com o retângulo branco da imagem */
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 22px;
+      top: 63%; /* <-- ajuste vertical até o texto cair dentro do retângulo */
+      left: 58%; /* <-- ajuste horizontal para não colar no ícone */
+      transform: translate(-50%, -50%);
+      font-size: 20px;
       font-weight: bold;
       color: red;
+      white-space: nowrap;
     }
   </style>
 </head>
