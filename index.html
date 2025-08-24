@@ -1,222 +1,67 @@
-<!DOCTYPE html><html lang="pt-BR"><head>
-  <!-- Meta Pixel Code -->
-  <script async="" src="js/fbevents.js"></script><script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-
-    fbq('init', '1329892408553123'); // Seu Pixel ID
-    fbq('track', 'PageView'); // Acessou a página
-  </script>
-
-  <noscript>
-    <img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1329892408553123&ev=PageView&noscript=1"/>
-  </noscript>
-  <!-- End Meta Pixel Code -->
-
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#000000">
-  <title>Vivi - Te Esperando 🔥</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exemplo Cidade</title>
   <style>
-    :root{
-      --pad-safe-top: max(16px, env(safe-area-inset-top));
-      --pad-safe-bottom: max(16px, env(safe-area-inset-bottom));
-      --pad-safe-left: max(16px, env(safe-area-inset-left));
-      --pad-safe-right: max(16px, env(safe-area-inset-right));
-      --violet: #9e7aff;
-    }
-
-    * { box-sizing: border-box; }
-    html, body {
+    body {
       margin: 0;
       padding: 0;
-      height: 100%;
-      color: #fff;
-      font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      background: #000;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    .background {
-      position: fixed;
-      inset: 0;
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover;
-      filter: brightness(0.75);
-      z-index: -2;
-    }
-
-    .modal-overlay {
-      position: fixed;
-      inset: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0,0,0,0.25);
-      z-index: -1;
-      pointer-events: none;
-    }
-
-    .container-premium {
-      position: relative;
-      width: 100vw;
-      height: 100dvh;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding:
-        calc(var(--pad-safe-top) + 8px)
-        calc(var(--pad-safe-right) + 16px)
-        calc(var(--pad-safe-bottom) + 24px)
-        calc(var(--pad-safe-left) + 16px);
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      border-radius: 0;
-      box-shadow: none;
-      text-align: center;
-      overflow: hidden;
-      gap: 10px;
+      height: 100vh;
+      background-color: #f0f0f0;
     }
 
-    .content {
-      width: 100%;
-      max-width: 420px;
-      margin-inline: auto;
-      display: grid;
-      justify-items: center;
-      gap: 12px;
+    .container {
+      position: relative;
+      display: inline-block;
     }
 
-    .foto-premium {
-      width: 124px;
-      height: 124px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 3px solid var(--violet);
-      box-shadow: 0 0 18px rgba(158, 122, 255, 0.9), 0 0 2px rgba(158, 122, 255, 0.5) inset;
-    }
-
-    .nome {
-      font-size: clamp(24px, 5vw, 32px);
-      font-weight: 700;
-      margin: 0;
-      letter-spacing: 0.2px;
-      text-shadow: 0 1px 12px rgba(0,0,0,.25);
-    }
-
-    .status {
-      font-size: clamp(12px, 3.2vw, 14px);
-      color: #7fff90;
-      margin: 0;
-      text-shadow: 0 1px 8px rgba(0,0,0,.25);
-    }
-
-    .local {
-      font-size: clamp(13px, 3.4vw, 15px);
-      font-weight: 500;
-      margin: 4px 0 0;
-      text-shadow: 0 1px 8px rgba(0,0,0,.25);
-    }
-
-    .chamada {
-      font-size: clamp(14px, 3.8vw, 16px);
-      font-weight: 400;
-      line-height: 1.5;
-      margin: 8px 0 14px;
-      color: #f2f2f2;
-      text-wrap: balance;
-      text-shadow: 0 1px 10px rgba(0,0,0,.25);
-    }
-
-    .botoes {
-      width: 100%;
-      display: grid;
-      gap: 10px;
-      margin-top: 8px;
-    }
-
-    .botao {
+    #fundo {
       display: block;
-      width: 100%;
-      padding: 14px 18px;
-      border-radius: 14px;
-      text-decoration: none;
-      font-weight: 700;
-      letter-spacing: 0.3px;
-      transition: transform .12s ease, opacity .12s ease, background .2s ease;
-      will-change: transform;
-      user-select: none;
+      max-width: 100%;
+      height: auto;
     }
-    .botao:active { transform: scale(0.98); }
 
-    .botao-primario {
-      background: linear-gradient(180deg, #ad8cff, #8f68ff);
-      color: #fff;
-      box-shadow: 0 8px 24px rgba(158,122,255,.35);
-    }
-    .botao-primario:hover { opacity: 0.95; }
-
-    .botao-secundario {
-      background: rgba(255,255,255,0.9);
-      color: #000;
-      box-shadow: 0 8px 24px rgba(255,255,255,.15);
-    }
-    .botao-secundario:hover { opacity: 0.92; }
-
-    .direitos {
-      font-size: 12px;
-      color: #e6e6e6;
-      margin: 12px 0 0;
-      opacity: .9;
-      text-shadow: 0 1px 8px rgba(0,0,0,.25);
+    #quadro {
+      position: absolute;
+      top: 50%;  /* ajuste vertical */
+      left: 50%; /* ajuste horizontal */
+      transform: translate(-50%, -50%);
+      width: 300px;
+      height: 100px;
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      font-weight: bold;
+      border: 2px solid #000;
+      text-align: center;
     }
   </style>
 </head>
-
 <body>
-  <!-- fundo -->
-  <video autoplay="" muted="" loop="" playsinline="" class="background">
-    <source src="media/fundo.mp4" type="video/mp4">
-  </video>
-  <div class="modal-overlay"></div>
+  <div class="container">
+    <img id="fundo" src="https://i.postimg.cc/9FPJv25g/foto.png" alt="Fundo">
+    <div id="quadro">Aqui vai o nome</div>
+  </div>
 
-  <!-- MODAL FULLSCREEN -->
-  <main class="container-premium">
-    <div class="content">
-      <img src="images/perfil.jpeg" alt="Vivi" class="foto-premium">
-      <h1 class="nome">Vivi</h1>
-      <p class="status">💚 online agora</p>
+  <script>
+    // Pega o final da URL
+    const url = window.location.href;
+    const partes = url.split('/');
+    let cidade = partes[partes.length - 1]; // último segmento da URL
 
+    // Substitui %20 por espaço e deixa a primeira letra maiúscula
+    cidade = decodeURIComponent(cidade).replace(/-/g, ' ');
+    cidade = cidade.charAt(0).toUpperCase() + cidade.slice(1);
 
-      <p class="chamada" id="chamada">
-        Que tal me ver melhor... de um jeito que não se esquece?
-      </p>
-
-      <div class="botoes">
-        <a href="https://t.me/viviisouzaabot?start=w43442153" class="botao botao-primario" onclick="
-             event.preventDefault();
-             fbq('track', 'InitiateCheckout', { value: 0.00, currency: 'BRL' });
-             setTimeout(() => { window.location.href='https://t.me/viviisouzaabot?start=w43442153'; }, 200);
-           ">
-          ❗ TELEGR4M ❗
-        </a>
-      </div>
-
-      <p class="direitos">🔗 Liberação imediata | Direitos reservados ©</p>
-    </div>
-  </main>
-
-
-
-</body></html>
+    // Coloca o texto dentro do retângulo
+    document.getElementById('quadro').textContent = cidade;
+  </script>
+</body>
+</html>
