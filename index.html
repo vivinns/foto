@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Exemplo Cidade</title>
+
+  <!-- Fonte Roboto -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+
   <style>
     body {
       margin: 0;
@@ -28,11 +32,12 @@
 
     #cidadeTexto {
       position: absolute;
-      top: 63%; /* <-- ajuste vertical até o texto cair dentro do retângulo */
-      left: 58%; /* <-- ajuste horizontal para não colar no ícone */
-      transform: translate(-50%, -50%);
-      font-size: 20px;
-      font-weight: bold;
+      top: 63%; /* posiciona dentro do retângulo */
+      left: 62%; /* ajusta para ficar alinhado após o ícone roxo */
+      transform: translateY(-50%);
+      font-size: 26px; /* texto maior */
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
       color: red;
       white-space: nowrap;
     }
