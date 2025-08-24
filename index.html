@@ -26,43 +26,33 @@
       height: auto;
     }
 
-    #quadro {
+    #cidadeTexto {
       position: absolute;
-      top: 50%;
+      bottom: 140px; /* Ajuste para alinhar com o retângulo branco da imagem */
       left: 50%;
-      transform: translate(-50%, -50%);
-      width: 300px;
-      height: 100px;
-      background-color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 24px;
+      transform: translateX(-50%);
+      font-size: 22px;
       font-weight: bold;
-      border: 2px solid #000;
-      text-align: center;
+      color: red;
     }
   </style>
 </head>
 <body>
   <div class="container">
     <img id="fundo" src="https://i.postimg.cc/9FPJv25g/foto.png" alt="Fundo">
-    <div id="quadro">Carregando...</div>
+    <div id="cidadeTexto">Carregando...</div>
   </div>
 
   <script>
-    // Captura os parâmetros da URL
     const params = new URLSearchParams(window.location.search);
     let cidade = params.get("cidade");
 
     if (cidade) {
-      // Substitui hífens por espaços
       cidade = decodeURIComponent(cidade).replace(/-/g, ' ');
-      // Deixa a primeira letra maiúscula
       cidade = cidade.charAt(0).toUpperCase() + cidade.slice(1);
-      document.getElementById('quadro').textContent = cidade;
+      document.getElementById('cidadeTexto').textContent = cidade;
     } else {
-      document.getElementById('quadro').textContent = "Cidade não informada";
+      document.getElementById('cidadeTexto').textContent = "Cidade não informada";
     }
   </script>
 </body>
